@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace EventMgmt.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
         // GET: Home
