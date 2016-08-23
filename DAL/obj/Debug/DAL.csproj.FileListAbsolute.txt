@@ -1,0 +1,10 @@
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\DAL.dll.config
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\DAL.dll
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\DAL.pdb
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\EntityFramework.dll
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\EntityFramework.xml
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\obj\Debug\DAL.dll
+C:\Users\kaiza\onedrive\documents\visual studio 2015\Projects\EventMgmt\DAL\obj\Debug\DAL.pdb
