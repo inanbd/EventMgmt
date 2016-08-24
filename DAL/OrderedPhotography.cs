@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace DAL
 {
     public class OrderedPhotography
     {
+        [Key]
         public int OPhotographyId { get; set; }
 
         public int EventId { get; set; }
@@ -16,11 +18,6 @@ namespace DAL
         [ForeignKey("EventId")]
         public Event Event { get; set; }
 
-
-        public int UserId { get; set; }
-
-        [ForeignKey("UserId")]
-        public User User { get; set; }
 
         public String PhotographyTitle { set; get; }
 

@@ -13,7 +13,7 @@ namespace DAL.CustomAttr
             var owner = validationContext.ObjectInstance as User;
             if (owner == null) return new ValidationResult("Model is empty");
             EMDbContext db = new EMDbContext();
-            var user = db.Users.FirstOrDefault(u => u.UserName == (string)value && u.UserId != owner.UserId);
+            var user = db.Users.SingleOrDefault(u => u.UserName == (string)value && u.UserId != owner.UserId);
 
             if (user == null)
                 return ValidationResult.Success;

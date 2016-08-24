@@ -11,10 +11,12 @@ namespace EventMgmt.Security
     {
 
         private User user;
-        public CustomPrincipal(String username)
+        public CustomPrincipal(User user)
         {
-
+            this.user = user;
+            this.Identity = new GenericIdentity(user.UserName);
         }
+        
 
         public IIdentity Identity
         {
@@ -23,7 +25,7 @@ namespace EventMgmt.Security
 
         public bool IsInRole(string role)
         {
-            throw new NotImplementedException();
+            return this.user.UserType.Contains(role);
         }
     }
 }

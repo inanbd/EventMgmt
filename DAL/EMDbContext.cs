@@ -18,11 +18,15 @@ namespace DAL
         public DbSet<Catering> Caterings { get; set; }
 
 
-        //public DbSet<OrderedCatering> OCaterings { get; set; }
-        //public DbSet<OrderedDecoration> ODecorations { get; set; }
-        //public DbSet<OrderedPhotography> OPhotographies { get; set; }
-        //public DbSet<OrderedPlace> OPlaces { get; set; }
-        //public DbSet<OrderedFood> OFoods { get; set; }
+        public DbSet<OrderedCatering> OCaterings { get; set; }
+        public DbSet<OrderedDecoration> ODecorations { get; set; }
+        public DbSet<OrderedPhotography> OPhotographies { get; set; }
+        public DbSet<OrderedPlace> OPlaces { get; set; }
+        public DbSet<OrderedFood> OFoods { get; set; }
+
+
+
+       
 
     }
 }

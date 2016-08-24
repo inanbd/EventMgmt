@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,18 +10,13 @@ namespace DAL
 {
     public class OrderedCatering
     {
+        [Key]
         public int OCateringId { get; set; }
         
         public int EventId { get; set; }
 
         [ForeignKey("EventId")]
         public Event Event { get; set; }
-
-
-        public int UserId { get; set; }
-
-        [ForeignKey("UserId")]
-        public User User { get; set; }
 
         public String CateringTitle { set; get; }
 

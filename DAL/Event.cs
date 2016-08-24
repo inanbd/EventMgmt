@@ -23,5 +23,14 @@ namespace DAL
         [Required(ErrorMessage ="Event Name is Required")]
         public String EventTitle { set; get; }
 
+
+        public List<OrderedCatering> OrderedCaterings { set; get; }
+        public List<OrderedFood> OrderedFoods { set; get; }
+        public List<OrderedPhotography> OrderedPhotographies { set; get; }
+        public List<OrderedPlace> OrderedPlaces { set; get; }
+        public List<OrderedDecoration> OrderedDecorations { set; get; }
+
+
+
     }
 }

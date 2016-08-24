@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAL;
+using EventMgmt.Security;
 
 namespace EventMgmt.Controllers
 {
@@ -12,47 +13,52 @@ namespace EventMgmt.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            
+         
             return View();
         }
         [HttpPost]
         public ActionResult Index(Login user)
         {
-            if(string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Password))
+
+            //SessionPersister.Username = user.UserName;
+            
+            if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Password))
             {
-               
                 return View();
             }
-            using(EMDbContext db = new EMDbContext())
+            using (EMDbContext db = new EMDbContext())
             {
                 var usr = db.Users.SingleOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
                 if (usr != null)
                 {
-                    Session["Username"] = usr.UserName.ToString();
-                    Session["Usertype"] = usr.UserType.ToString();
-
+                    SessionPersister.Username = user.UserName;
+                    SessionPersister.user = usr;
+                    SessionPersister.Type = usr.UserType;
+                   
                     if (usr.UserType.ToString().Equals("admin"))
                     {
-                        Response.Redirect("/Home/Admin");
+                        
+                        Response.Redirect("/Home/Admin",false);
 
                     }
                     else if (usr.UserType.ToString().Equals("customer"))
                     {
-                        Response.Redirect("/Home/Customer");
+                       
+                        Response.Redirect("/Home/Customer",false);
                     }
                     else
                     {
                         ModelState.AddModelError("", "Something is wrong..We are gonna fix this soon.");
                         Console.WriteLine("invalid type request from IP: " + Request.UserHostAddress);
                     }
-                    
+
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid Username/Password");
                 }
             }
-
+           
             return View();
         }
         public ActionResult Register()
@@ -82,6 +88,10 @@ namespace EventMgmt.Controllers
             Session.Remove("Username");
             Session.Remove("Usertype");
             return View("Index");
+        }
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
 
     }
