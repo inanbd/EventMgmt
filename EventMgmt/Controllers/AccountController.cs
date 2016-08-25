@@ -3,95 +3,100 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventMgmt.Models;
 using DAL;
+using System.Web.Security;
 using EventMgmt.Security;
 
 namespace EventMgmt.Controllers
 {
+
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         // GET: Account
         public ActionResult Index()
         {
-         
+            return RedirectToAction("Login");
+        }
+
+       
+        public ActionResult Login()
+        {
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Login user)
+        public ActionResult Login(LoginViewModel userinfo)
         {
 
-            //SessionPersister.Username = user.UserName;
-            
-            if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Password))
+            using(EMDbContext db = new EMDbContext())
             {
-                return View();
-            }
-            using (EMDbContext db = new EMDbContext())
-            {
-                var usr = db.Users.SingleOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
-                if (usr != null)
-                {
-                    SessionPersister.Username = user.UserName;
-                    SessionPersister.user = usr;
-                    SessionPersister.Type = usr.UserType;
-                   
-                    if (usr.UserType.ToString().Equals("admin"))
-                    {
-                        
-                        Response.Redirect("/Home/Admin",false);
+                User user = db.Users.Where(x => x.UserName == userinfo.Username && x.Password == userinfo.Password).SingleOrDefault();
 
-                    }
-                    else if (usr.UserType.ToString().Equals("customer"))
+                if (user != null)
+                {
+                    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                    SessionPersister.user = user;
+                    if (user.UserType.Equals("admin"))
                     {
-                       
-                        Response.Redirect("/Home/Customer",false);
+                        return RedirectToAction("Index","Admin");
+
+                    }else if (user.UserType.Equals("customer"))
+                    {
+                        return RedirectToAction("Index", "Customer");
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Something is wrong..We are gonna fix this soon.");
-                        Console.WriteLine("invalid type request from IP: " + Request.UserHostAddress);
+                        ViewBag.Message = "Invalid User";
                     }
 
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid Username/Password");
+                    ViewBag.Message = "Invalid Username/Password";
                 }
+                
+
             }
-           
-            return View();
-        }
-        public ActionResult Register()
-        {
+
+
 
             return View();
         }
+
+
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult Register(User user)
+        public ActionResult Register(User NewUser)
         {
             if (ModelState.IsValid)
             {
                 using (EMDbContext db = new EMDbContext())
                 {
-                    user.UserType = "customer";
-                    db.Users.Add(user);
+                    NewUser.UserType = "customer";
+                    db.Users.Add(NewUser);
                     db.SaveChanges();
                 }
                 ModelState.Clear();
-                ViewBag.Message = user.FirstName + " " + user.LastName + ",Your Account has Successfully Registered.";
+                ViewBag.Message = NewUser.FirstName + " " + NewUser.LastName + ",Your Account has Successfully Registered.";
 
             }
             return View();
         }
+
+
+
         public ActionResult Logout()
         {
-            Session.Remove("Username");
-            Session.Remove("Usertype");
-            return View("Index");
-        }
-        public ActionResult AccessDenied()
-        {
-            return View();
+            FormsAuthentication.SignOut();
+            SessionPersister.user = null;
+            return RedirectToAction("Index","Home");
+            
         }
 
     }

@@ -8,14 +8,13 @@ namespace EventMgmt.Security
 {
     public static class SessionPersister
     {
-        static string usernameSessionVar = "username";
-        static string typeSessionVar = "SessionType";
+        static string userSessionvar = "userSessionVar";
 
-            
-
-        public static User user{
-            set {
-                HttpContext.Current.Session["user"] = value;
+        public static User user
+        {
+            set
+            {
+                HttpContext.Current.Session[userSessionvar] = value;
             }
 
             get
@@ -24,7 +23,7 @@ namespace EventMgmt.Security
                 {
                     return null;
                 }
-                var sessionVar = HttpContext.Current.Session["user"];
+                var sessionVar = HttpContext.Current.Session[userSessionvar];
                 if (sessionVar != null)
                 {
                     return sessionVar as User;
@@ -33,51 +32,6 @@ namespace EventMgmt.Security
                 return null;
             }
         }
-
-
-        public static string Type
-        {
-            set { HttpContext.Current.Session[typeSessionVar] = value; }
-
-
-            get
-            {
-                if (HttpContext.Current == null)
-                {
-                    return string.Empty;
-                }
-                var sessionVar = HttpContext.Current.Session[typeSessionVar];
-                if (sessionVar != null)
-                {
-                    return sessionVar as string;
-                }
-
-                return null;
-            }
-
-        }
-        public static string Username
-        {
-            set
-            {
-                HttpContext.Current.Session[usernameSessionVar] = value;
-            }
-            get
-            {
-                if (HttpContext.Current == null)
-                {
-                    return string.Empty;
-                }
-                var sessionVar = HttpContext.Current.Session[usernameSessionVar];
-                if (sessionVar != null)
-                {
-                    return sessionVar as string;
-                }
-
-                return null;
-            }
-        }
-
 
     }
 }

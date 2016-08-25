@@ -60,7 +60,6 @@
     <Compile Include="EMDbContext.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="Login.cs" />
     <Compile Include="OrderedCatering.cs" />
     <Compile Include="OrderedDecoration.cs" />
     <Compile Include="OrderedFood.cs" />
