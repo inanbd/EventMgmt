@@ -27,23 +27,14 @@ namespace DAL
         public String CateringDescription { set; get; }
 
 
-        [Required(ErrorMessage = "Decoration Cost Required")]
+        [Required(ErrorMessage = "Catering Cost Required")]
         public double CateringCost { set; get; }
 
 
         public String pic1 { set; get; }
-
-        [Unlike("pic1", ErrorMessage = "Same picture cannot be uploaded multiple times")]
         public String pic2 { set; get; }
-
-        [Unlike("pic1", ErrorMessage = "Same picture cannot be uploaded multiple times")]
         public String pic3 { set; get; }
-
-        [Unlike("pic3", ErrorMessage = "Same picture cannot be uploaded multiple times")]
         public String pic4 { set; get; }
-
-
-        [Unlike("pic4", ErrorMessage = "Same picture cannot be uploaded multiple times")]
         public String pic5 { set; get; }
     }
 }

@@ -49,6 +49,11 @@ namespace EventMgmt.Security
 
         public override string[] GetRolesForUser(string username)
         {
+            if (string.IsNullOrEmpty(SessionPersister.user.UserType))
+            {
+                string[] result = { "none" };
+                return result;
+            }
 
             string s = SessionPersister.user.UserType;
                 string[] results = { s };

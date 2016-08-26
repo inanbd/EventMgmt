@@ -10,6 +10,7 @@ namespace EventMgmt.Security
     {
         static string userSessionvar = "userSessionVar";
 
+
         public static User user
         {
             set
@@ -21,17 +22,25 @@ namespace EventMgmt.Security
             {
                 if (HttpContext.Current == null)
                 {
-                    return null;
+                    return null as User;
                 }
-                var sessionVar = HttpContext.Current.Session[userSessionvar];
+                var sessionVar = (User)HttpContext.Current.Session[userSessionvar];
                 if (sessionVar != null)
                 {
                     return sessionVar as User;
                 }
+                else
+                {
+                    return new User()
+                    {
+                        UserType="none"
+                    };
+                }
 
-                return null;
+                
             }
         }
+       
 
     }
 }
