@@ -8,13 +8,24 @@ using DAL;
 
 namespace EventMgmt.Controllers
 {
+    
     [Authorize]
     public class ServiceController : Controller
     {
+        EMDbContext db2 = new EMDbContext();
         // GET: Event
         public ActionResult Index()
         {
-            return View();
+            List<object> models = new List<object>();
+            
+                models.Add(db2.Foods.ToList());
+                models.Add(db2.Caterings.ToList());
+                models.Add(db2.Decorations.ToList());
+                models.Add(db2.Places.ToList());
+                models.Add(db2.Photographies.ToList());
+                
+            
+            return View(models);
 
         }
 

@@ -225,6 +225,7 @@
     <Content Include="Views\Service\AddDecoration.cshtml" />
     <Content Include="Views\Service\AddPhotography.cshtml" />
     <Content Include="Views\Service\AddPlace.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
