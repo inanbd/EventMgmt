@@ -35,8 +35,6 @@ namespace EventMgmt.Controllers
             return View();
         }
 
-        
-
 
         [CustomAuthorize(Roles = "admin")]
         public ActionResult AddFood()
@@ -114,8 +112,6 @@ namespace EventMgmt.Controllers
 
             return View();
         }
-
-
 
 
         [CustomAuthorize(Roles = "admin")]
