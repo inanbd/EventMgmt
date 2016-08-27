@@ -10,6 +10,12 @@ namespace DAL
 {
     public class User
     {
+
+        public User()
+        {
+            Events = new List<Event>();
+        }
+
         [Key]
         public int UserId { set; get; }
 

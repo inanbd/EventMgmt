@@ -25,6 +25,8 @@ namespace DAL
 
         public String FoodDescription { set; get; }
 
+        [Required(ErrorMessage ="Amount Required")]
+        public int Amount { get; set; }
 
         public double FoodCost { set; get; }
         public String pic1 { set; get; }

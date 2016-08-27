@@ -10,6 +10,14 @@ namespace DAL
 {
     public class Event
     {
+        public Event()
+        {
+            OrderedCaterings = new List<OrderedCatering>();
+            OrderedFoods = new List<OrderedFood>();
+            OrderedPhotographies = new List<OrderedPhotography>();
+            OrderedPlaces = new List<OrderedPlace>();
+            OrderedDecorations = new List<OrderedDecoration>();
+        }
         [Key]
         public int EventId { set; get; }
 
