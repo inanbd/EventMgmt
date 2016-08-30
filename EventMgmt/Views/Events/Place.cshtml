@@ -1,0 +1,43 @@
+﻿
+@model IEnumerable<DAL.OrderedPlace>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceTitle)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceCost)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @using (Html.BeginForm())
+            {
+
+                @Html.AntiForgeryToken()
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaceTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaceDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaceCost)
+                </td>
+                
+            }
+
+        </tr>
+    }
+
+</table>

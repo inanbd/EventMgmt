@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DAL.Decoration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DecorationTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DecorationCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DecorationDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DecorationCost)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecorationTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecorationCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecorationDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecorationCost)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DecorationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DecorationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DecorationId })
+        </td>
+    </tr>
+}
+
+</table>

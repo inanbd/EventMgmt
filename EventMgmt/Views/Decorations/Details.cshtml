@@ -1,0 +1,90 @@
+﻿@model DAL.Decoration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Decoration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorationTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorationTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorationCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorationCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorationDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorationDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorationCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorationCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic5)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DecorationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,11 +11,6 @@ namespace DAL
     public class User
     {
 
-        public User()
-        {
-            Events = new List<Event>();
-        }
-
         [Key]
         public int UserId { set; get; }
 
@@ -77,8 +72,7 @@ namespace DAL
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password do not matched")]
         public string ConfirmPassword { set; get; }
-
-
+        
         public List<Event> Events { set; get; }
 
 

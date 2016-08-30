@@ -157,7 +157,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\pikaday.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\theme.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
@@ -184,18 +186,25 @@
     <Content Include="scripts\jquery.signalR-2.2.1.js" />
     <Content Include="scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\pikaday.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DecorationsController.cs" />
+    <Compile Include="Controllers\PhotographiesController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\ServicesToEventController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FoodViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CustomAuthorize.cs" />
@@ -219,13 +228,46 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Events\IsConfirmed.cshtml" />
+    <Content Include="Views\ServicesToEvent\AddService.cshtml" />
+    <Content Include="Views\ServicesToEvent\AddPlace.cshtml" />
+    <Content Include="Views\ServicesToEvent\AddFood.cshtml" />
+    <Content Include="Views\ServicesToEvent\AddDecorations.cshtml" />
+    <Content Include="Views\Events\Place.cshtml" />
     <Content Include="Views\Service\Add.cshtml" />
-    <Content Include="Views\Service\AddFood.cshtml" />
     <Content Include="Views\Service\AddCatering.cshtml" />
     <Content Include="Views\Service\AddDecoration.cshtml" />
+    <Content Include="Views\Service\AddFood.cshtml" />
     <Content Include="Views\Service\AddPhotography.cshtml" />
     <Content Include="Views\Service\AddPlace.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\ManageCatering.cshtml" />
+    <Content Include="Views\Service\Manage.cshtml" />
+    <Content Include="Views\Service\DeleteFood.cshtml" />
+    <Content Include="Views\Service\EditFood.cshtml" />
+    <Content Include="Views\Service\ManageFood.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Decorations\Create.cshtml" />
+    <Content Include="Views\Decorations\Delete.cshtml" />
+    <Content Include="Views\Decorations\Details.cshtml" />
+    <Content Include="Views\Decorations\Edit.cshtml" />
+    <Content Include="Views\Decorations\Index.cshtml" />
+    <Content Include="Views\Photographies\Create.cshtml" />
+    <Content Include="Views\Photographies\Delete.cshtml" />
+    <Content Include="Views\Photographies\Details.cshtml" />
+    <Content Include="Views\Photographies\Edit.cshtml" />
+    <Content Include="Views\Photographies\Index.cshtml" />
+    <Content Include="Views\Events\Foods.cshtml" />
+    <Content Include="Views\Events\Decorations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -236,6 +278,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Hubs\" />
+    <Folder Include="img\" />
+    <Folder Include="Views\AddService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

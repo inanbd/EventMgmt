@@ -1,15 +1,14 @@
-﻿@model DAL.Food
-
+﻿
+@model DAL.Food
 @{
     ViewBag.Title = "AddFood";
 }
-
 <h2>AddFood</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddFood", "Service", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    
+    @Html.ValidationSummary(true)
+
     <div class="form-horizontal">
         <h4>Food</h4>
         <hr />
@@ -22,7 +21,6 @@
                 @Html.ValidationMessageFor(model => model.FoodTitle, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FoodCategory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -30,7 +28,6 @@
                 @Html.ValidationMessageFor(model => model.FoodCategory, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FoodDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,7 +35,6 @@
                 @Html.ValidationMessageFor(model => model.FoodDescription, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FoodCost, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -46,7 +42,6 @@
                 @Html.ValidationMessageFor(model => model.FoodCost, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.pic1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -54,7 +49,6 @@
                 @Html.ValidationMessageFor(model => model.pic1, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.pic2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -62,7 +56,6 @@
                 @Html.ValidationMessageFor(model => model.pic2, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.pic3, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -70,7 +63,6 @@
                 @Html.ValidationMessageFor(model => model.pic3, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.pic4, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -78,7 +70,9 @@
                 @Html.ValidationMessageFor(model => model.pic4, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            <input id="Picture" title="Upload a image" type="file" name="file" />
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.pic5, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -86,7 +80,6 @@
                 @Html.ValidationMessageFor(model => model.pic5, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -94,7 +87,6 @@
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

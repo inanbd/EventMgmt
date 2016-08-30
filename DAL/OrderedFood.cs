@@ -13,6 +13,7 @@ namespace DAL
         [Key]
         public int OFoodId { get; set; }
 
+        public int FoodId { set; get; }
         public int EventId { get; set; }
 
         [ForeignKey("EventId")]

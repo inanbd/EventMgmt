@@ -1,0 +1,100 @@
+﻿@model DAL.Food
+
+@{
+    ViewBag.Title = "EditFood";
+}
+
+<h2>EditFood</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Food</legend>
+
+        @Html.HiddenFor(model => model.FoodId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FoodTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FoodTitle)
+            @Html.ValidationMessageFor(model => model.FoodTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FoodCategory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FoodCategory)
+            @Html.ValidationMessageFor(model => model.FoodCategory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FoodDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FoodDescription)
+            @Html.ValidationMessageFor(model => model.FoodDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FoodCost)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FoodCost)
+            @Html.ValidationMessageFor(model => model.FoodCost)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pic1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pic1)
+            @Html.ValidationMessageFor(model => model.pic1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pic2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pic2)
+            @Html.ValidationMessageFor(model => model.pic2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pic3)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pic3)
+            @Html.ValidationMessageFor(model => model.pic3)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pic4)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pic4)
+            @Html.ValidationMessageFor(model => model.pic4)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pic5)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pic5)
+            @Html.ValidationMessageFor(model => model.pic5)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

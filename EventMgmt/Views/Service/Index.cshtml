@@ -5,7 +5,7 @@
 
 <h2>Show All Services</h2>
 
-@{ 
+@{
     List<DAL.Food> Foods = Model.ToList()[0] as List<DAL.Food>;
     List<DAL.Catering> Caterings = Model.ToList()[1] as List<DAL.Catering>;
     List<DAL.Decoration> Decorations = Model.ToList()[2] as List<DAL.Decoration>;
@@ -17,10 +17,22 @@
 {
     foreach (var item in Foods)
     {
-        <li>@item.FoodTitle</li>
+        <li>
+            <ol>Name : @item.FoodTitle</ol>
+            <ol>Catagory : @item.FoodCategory</ol>
+            <ol>Description : @item.FoodDescription</ol>
+            <ol>Cost: @item.FoodCost</ol>
+            
+ 
+            
+        </li>
+        <img src="~/img/@Html.DisplayFor(modelItem => item.pic1)" class="img-rounded" alt="Cinque Terre" width="304" height="150">
+
+
     }
 }
-else{ 
+else
+{
     <p style="color:red">Food menu added</p>
 }
 <h3>Caterings</h3>
@@ -28,7 +40,12 @@ else{
 {
     foreach (var item in Caterings)
     {
-        <li>@item.CateringTitle</li>
+        <li>
+            <ol>Name : @item.CateringTitle</ol>
+            <ol>Catagory : @item.CateringCategory</ol>
+            <ol>Description : @item.CateringDescription</ol>
+            <ol>Cost:@item.CateringCost</ol>
+        </li>
     }
 }
 else
@@ -40,7 +57,13 @@ else
 {
     foreach (var item in Decorations)
     {
-        <li>@item.DecorationTitle</li>
+        <li>
+            <ol>Name : @item.DecorationTitle</ol>
+            <ol>Catagory : @item.DecorationCategory</ol>
+            <ol>Description : @item.DecorationDescription</ol>
+            <ol>Cost:@item.DecorationCost</ol>
+        </li>
+
     }
 }
 else
@@ -52,7 +75,11 @@ else
 {
     foreach (var item in Photographies)
     {
-        <li>@item.PhotographyTitle</li>
+        <li>
+            <ol>Name : @item.PhotographyTitle</ol>
+            <ol>Catagory : @item.PhotographyDescription</ol>
+            <ol>Cost:@item.PhotographyCost</ol>
+        </li>
     }
 }
 else
@@ -64,10 +91,16 @@ else
 {
     foreach (var item in Places)
     {
-        <li>@item.PlaceTitle</li>
+        <li>
+            <ol>Name : @item.PlaceTitle</ol>
+            <ol>Catagory : @item.PlaceCategory</ol>
+            <ol>Description : @item.PlaceDescription</ol>
+            <ol>Cost:@item.PlaceCost</ol>
+        </li>
+        <li></li>
     }
 }
 else
 {
     <p style="color:red">no place added</p>
-}
+}   

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DAL.Catering>
+
+@{
+    ViewBag.Title = "ManageCatering";
+}
+
+<h2>ManageCatering</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pic1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pic2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pic3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pic4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pic5)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateringTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateringCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateringDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateringCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pic1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pic2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pic3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pic4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pic5)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CateringId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CateringId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CateringId })
+            </td>
+        </tr>
+    }
+
+</table>

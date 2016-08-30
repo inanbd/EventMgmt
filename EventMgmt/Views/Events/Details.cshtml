@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<object>
+
+
+@{
+    ViewBag.Title = "AddService";
+}
+
+
+@{
+    List<DAL.OrderedFood> Foods = Model.ToList()[0] as List<DAL.OrderedFood>;
+    List<DAL.OrderedPlace> Places = Model.ToList()[1] as List<DAL.OrderedPlace>;
+    List<DAL.OrderedDecoration> Decorations = Model.ToList()[2] as List<DAL.OrderedDecoration>;
+    // List<DAL.Photography> Phtographies = Model.ToList()[3] as List<DAL.Photography>;
+}
+
+
+<h2>AddServices</h2>
+<h3>@ViewBag.Message</h3>
+
+<h3>Place</h3>
+@{ Html.RenderPartial("Place", Places);}
+<h3>Food</h3>
+@{ Html.RenderPartial("Foods", Foods);}
+<h3>Decorations</h3>
+@{ Html.RenderPartial("Decorations", Decorations);}

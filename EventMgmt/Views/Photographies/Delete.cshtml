@@ -1,0 +1,88 @@
+﻿@model DAL.Photography
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Photography</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic5)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -13,6 +13,8 @@ namespace DAL
         [Key]
         public int OPlaceId { get; set; }
 
+        public int PlaceId { set; get; }
+
         public int EventId { get; set; }
 
         [ForeignKey("EventId")]

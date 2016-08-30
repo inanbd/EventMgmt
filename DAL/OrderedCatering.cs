@@ -12,6 +12,8 @@ namespace DAL
     {
         [Key]
         public int OCateringId { get; set; }
+
+        public int CateringId { set; get; }
         
         public int EventId { get; set; }
 
@@ -23,6 +25,8 @@ namespace DAL
         public String CateringCategory { set; get; }
 
         public String CateringDescription { set; get; }
+
+        public int NoOfCaterers { set; get; }
 
 
         public double CateringCost { set; get; }

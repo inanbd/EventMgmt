@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DAL.Food>
+
+@{
+    ViewBag.Title = "ManageFood";
+}
+
+<h2>ManageFood</h2>
+
+
+<table border="2">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodTitle)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FoodCategory)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FoodDescription)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FoodCost)
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodCost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditFood", new { id = item.FoodId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FoodId }) |
+                @Html.ActionLink("Delete", "DeleteFood", new { id = item.FoodId })
+            </td>
+        </tr>
+    }
+
+</table>
