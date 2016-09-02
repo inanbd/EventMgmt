@@ -27,7 +27,8 @@ namespace EventMgmt.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             Event @event = db.Events.Find(id);
             if (@event == null)
@@ -35,9 +36,11 @@ namespace EventMgmt.Controllers
                 return HttpNotFound();
             }
             List<object> model = new List<object>();
+            
             model.Add(db.OFoods.Where(x => x.EventId == id).ToList());
             model.Add(db.OPlaces.Where(x => x.EventId == id).ToList());
             model.Add(db.ODecorations.Where(x => x.EventId == id).ToList());
+            model.Add(db.OPhotographies.Where(x => x.EventId == id).ToList());
             return View(model);
             //return View(@event);
         }
@@ -75,12 +78,14 @@ namespace EventMgmt.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             Event @event = db.Events.Find(id);
             if (@event == null)
             {
-                return HttpNotFound();
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             if (@event.IsConfirmed == false)
             {
@@ -114,12 +119,14 @@ namespace EventMgmt.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             Event @event = db.Events.Find(id);
             if (@event == null)
             {
-                return HttpNotFound();
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             return View(@event);
         }

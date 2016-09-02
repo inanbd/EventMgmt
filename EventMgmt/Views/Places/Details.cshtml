@@ -1,0 +1,90 @@
+﻿@model DAL.Place
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic5)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

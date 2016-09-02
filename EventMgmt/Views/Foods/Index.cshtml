@@ -1,31 +1,30 @@
 ﻿@model IEnumerable<DAL.Food>
 
 @{
-    ViewBag.Title = "ManageFood";
+    ViewBag.Title = "Index";
 }
 
-<h2>ManageFood</h2>
+<h2>Index</h2>
 
-
-<table border="2">
+<p>
+    @Html.ActionLink("Create New", "AddFood", "Service")
+</p>
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FoodTitle)
         </th>
-
         <th>
             @Html.DisplayNameFor(model => model.FoodCategory)
         </th>
-
         <th>
             @Html.DisplayNameFor(model => model.FoodDescription)
         </th>
-
         <th>
             @Html.DisplayNameFor(model => model.FoodCost)
         </th>
 
-
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -43,12 +42,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FoodCost)
             </td>
+
             <td>
-                @Html.ActionLink("Edit", "EditFood", new { id = item.FoodId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.FoodId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.FoodId }) |
-                @Html.ActionLink("Delete", "DeleteFood", new { id = item.FoodId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.FoodId })
             </td>
         </tr>
     }
 
 </table>
+
+<br />
+<p>
+    @Html.ActionLink("Back to Service Manage Page", "Manage", "Service")
+</p>

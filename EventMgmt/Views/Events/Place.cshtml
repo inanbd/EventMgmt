@@ -21,7 +21,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("DeleteService", "ServicesToEvent",FormMethod.Get))
             {
 
                 @Html.AntiForgeryToken()
@@ -34,7 +34,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.PlaceCost)
                 </td>
-                
+                <td><input type="hidden" name="placeid" value="@item.OPlaceId"/></td>
+                <td><input type="submit" value="Delete" class="btn btn-default" /></td>
             }
 
         </tr>

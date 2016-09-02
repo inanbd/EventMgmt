@@ -96,12 +96,14 @@ namespace EventMgmt.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             Decoration decoration = db.Decorations.Find(id);
             if (decoration == null)
             {
-                return HttpNotFound();
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             return View(decoration);
         }

@@ -1,0 +1,69 @@
+﻿@model DAL.OrderedPhotography
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OrderedPhotography</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfPhotographers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPhotographers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographyCost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <td><input type="hidden" name="photoid" value="@Model.PhotographyId" /></td>
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

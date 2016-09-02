@@ -98,12 +98,14 @@ namespace EventMgmt.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             Photography photography = db.Photographies.Find(id);
             if (photography == null)
             {
-                return HttpNotFound();
+                Response.Redirect("/Home/ItemNotFound", false);
+                return null;
             }
             return View(photography);
         }

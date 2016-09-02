@@ -1,0 +1,90 @@
+﻿@model DAL.Catering
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Catering</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pic5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pic5)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CateringId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

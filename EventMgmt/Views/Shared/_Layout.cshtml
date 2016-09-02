@@ -32,6 +32,7 @@
                 else if (User.IsInRole("customer"))
                 {
                     @Html.ActionLink("Customer Home", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Events", "Index", "Events", new { area = "" }, new { @class = "navbar-brand" })
                 }
 
             </div>

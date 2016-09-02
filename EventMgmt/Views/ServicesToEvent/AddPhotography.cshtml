@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DAL.Photography>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotographyTitle)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PhotographyDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotographyCost)
+        </th>
+        <th>
+            @Html.Label("NO of Photographers")
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @using (Html.BeginForm())
+            {
+
+                @Html.AntiForgeryToken()
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotographyTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotographyDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotographyCost)
+                </td>
+                <td><input type="text" name="amount" /></td>
+                <td><input type="hidden" name="decid" value="@item.PhotographyId" /></td>
+                <td><input type="submit" value="Add" class="btn btn-default" /></td>
+            }
+
+        </tr>
+    }
+
+</table>
+

@@ -48,40 +48,6 @@ namespace EventMgmt.Controllers
             return View();
         }
 
-        [CustomAuthorize(Roles = "admin")]
-        [HttpGet]
-        public ActionResult ManageFood()
-        {
-            EMDbContext context = new EMDbContext();
-            List<Food> foods = context.Foods.ToList();
-            return View(foods);
-        }
-
-
-        /* 
-         [CustomAuthorize(Roles = "admin")]
-         [HttpGet]
-         public ActionResult ManageFood(int id)
-         {
-             EMDbContext context = new EMDbContext();
-             Food food = context.Foods.SingleOrDefault(d => d.FoodId == id);
-             return View(food);
-         }
-
-         [CustomAuthorize(Roles = "admin")]
-         [HttpPost]
-         public ActionResult ManageFood([Bind(Exclude="FoodId")] Food food)
-         {
-             EMDbContext context = new EMDbContext();
-             Food foodupdate = context.Foods.SingleOrDefault(d => d.FoodId == food.FoodId);
-             foodupdate.FoodTitle = food.FoodTitle;
-             foodupdate.FoodCategory = food.FoodCategory;
-             foodupdate.FoodDescription = food.FoodDescription;
-             foodupdate.FoodCost = food.FoodCost;
-             context.SaveChanges();
-
-             return RedirectToAction("Index");
-         }*/
 
         [CustomAuthorize(Roles = "admin")]
         [HttpPost]
@@ -110,85 +76,6 @@ namespace EventMgmt.Controllers
             return View();
         }
 
-        [CustomAuthorize(Roles = "admin")]
-        [HttpGet]
-        public ActionResult EditFood(int id)
-        {
-            EMDbContext context = new EMDbContext();
-            Food food = context.Foods.SingleOrDefault(d => d.FoodId == id);
-            return View(food);
-        }
-
-        [CustomAuthorize(Roles = "admin")]
-        [HttpPost]
-        public ActionResult EditFood([Bind(Include = "FoodId,FoodTitle,FoodCategory,FoodCost")] Food food)
-        {
-            if (ModelState.IsValid)
-            {
-                using (EMDbContext context = new EMDbContext())
-                {
-                    context.Entry(food).State = System.Data.Entity.EntityState.Modified;
-                    context.SaveChanges();
-                }
-
-            }
-            /*EMDbContext context = new EMDbContext();
-
-            Food foodupdate = context.Foods.SingleOrDefault(d => d.FoodId == food.FoodId);
-            foodupdate.FoodTitle = food.FoodTitle;
-            foodupdate.FoodCategory = food.FoodCategory;
-            foodupdate.FoodDescription = food.FoodDescription;
-            foodupdate.FoodCost = food.FoodCost;
-            context.SaveChanges();
-
-            */
-
-            return RedirectToAction("Index");
-        }
-
-        [CustomAuthorize(Roles = "admin")]
-        [HttpGet]
-        public ActionResult DeleteFood(int id)
-        {
-            EMDbContext context = new EMDbContext();
-            Food food = context.Foods.SingleOrDefault(d => d.FoodId == id);
-            return View(food);
-        }
-
-        [CustomAuthorize(Roles = "admin")]
-        [HttpPost]
-        [ActionName("Delete")]
-        public ActionResult DeleteFood_Post(int id)
-        {
-            EMDbContext context = new EMDbContext();
-            Food foodToDel = context.Foods.SingleOrDefault(d => d.FoodId == id);
-            context.Foods.Remove(foodToDel);
-            context.SaveChanges();
-
-            //return RedirectToAction("Delete", "ManageFood");
-            return RedirectToAction("ManageFood");
-        }
-
-        /*
-         [HttpGet]
-        public ActionResult Delete(int id)
-        {
-            EmployeeDBContext context = new EmployeeDBContext();
-            Department dept = context.Departments.SingleOrDefault(d => d.DepartmentId == id);
-            return View(dept);
-        }
-
-        [HttpPost][ActionName("Delete")]
-        public ActionResult Delete_Post(int id)
-        {
-            EmployeeDBContext context = new EmployeeDBContext();
-            Department depttodel = context.Departments.SingleOrDefault(d => d.DepartmentId == id);
-            context.Departments.Remove(depttodel);
-            context.SaveChanges();
-
-            return RedirectToAction("Index");
-        }
-         */
 
 
         [CustomAuthorize(Roles = "admin")]
@@ -197,21 +84,20 @@ namespace EventMgmt.Controllers
             return View();
         }
 
-        [CustomAuthorize(Roles = "admin")]
-        [HttpGet]
-        public ActionResult ManageCatering()
-        {
-            EMDbContext context = new EMDbContext();
-            List<Catering> cataring = context.Caterings.ToList();
-            return View(cataring);
-        }
+
 
         [CustomAuthorize(Roles = "admin")]
         [HttpPost]
-        public ActionResult AddCatering(Catering catering)
+        public ActionResult AddCatering(HttpPostedFileBase file, Catering catering)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    catering.pic5 = file.FileName;
+                    file.SaveAs(HttpContext.Server.MapPath("~/imgc/") + file.FileName);
+
+                }
                 using (EMDbContext db = new EMDbContext())
                 {
                     db.Caterings.Add(catering);
@@ -233,12 +119,18 @@ namespace EventMgmt.Controllers
 
         [CustomAuthorize(Roles = "admin")]
         [HttpPost]
-        public ActionResult AddDecoration(Decoration decoration)
+        public ActionResult AddDecoration(HttpPostedFileBase file, Decoration decoration)
         {
 
 
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    decoration.pic4 = file.FileName;
+                    file.SaveAs(HttpContext.Server.MapPath("~/imgd/") + file.FileName);
+
+                }
                 using (EMDbContext db = new EMDbContext())
                 {
                     db.Decorations.Add(decoration);
@@ -261,10 +153,16 @@ namespace EventMgmt.Controllers
 
         [CustomAuthorize(Roles = "admin")]
         [HttpPost]
-        public ActionResult AddPhotography(Photography photo)
+        public ActionResult AddPhotography(HttpPostedFileBase file, Photography photo)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    photo.pic2 = file.FileName;
+                    file.SaveAs(HttpContext.Server.MapPath("~/imgp/") + file.FileName);
+
+                }
                 using (EMDbContext db = new EMDbContext())
                 {
                     db.Photographies.Add(photo);
@@ -286,10 +184,16 @@ namespace EventMgmt.Controllers
 
         [CustomAuthorize(Roles = "admin")]
         [HttpPost]
-        public ActionResult AddPlace(Place place)
+        public ActionResult AddPlace(HttpPostedFileBase file, Place place)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    place.pic3 = file.FileName;
+                    file.SaveAs(HttpContext.Server.MapPath("~/imgpl/") + file.FileName);
+
+                }
                 using (EMDbContext db = new EMDbContext())
                 {
                     db.Places.Add(place);

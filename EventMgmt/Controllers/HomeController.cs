@@ -22,7 +22,17 @@ namespace EventMgmt.Controllers
             Response.StatusCode = 403;
             return View();
         }
-
+        public ActionResult ItemNotFound()
+        {
+            Response.StatusCode = 403;
+            return View();
+        }
+        public ActionResult CreateAnEvent()
+        {
+            Response.StatusCode = 403;
+            return View();
+        }
+        
 
     }
 }

@@ -192,8 +192,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CateringsController.cs" />
     <Compile Include="Controllers\DecorationsController.cs" />
+    <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\PhotographiesController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\ServicesToEventController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -246,11 +249,7 @@
     <Content Include="Views\Service\AddPhotography.cshtml" />
     <Content Include="Views\Service\AddPlace.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
-    <Content Include="Views\Service\ManageCatering.cshtml" />
     <Content Include="Views\Service\Manage.cshtml" />
-    <Content Include="Views\Service\DeleteFood.cshtml" />
-    <Content Include="Views\Service\EditFood.cshtml" />
-    <Content Include="Views\Service\ManageFood.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -268,6 +267,29 @@
     <Content Include="Views\Photographies\Index.cshtml" />
     <Content Include="Views\Events\Foods.cshtml" />
     <Content Include="Views\Events\Decorations.cshtml" />
+    <Content Include="Views\Home\ItemNotFound.cshtml" />
+    <Content Include="Views\Home\CreateAnEvent.cshtml" />
+    <Content Include="Views\ServicesToEvent\AddPhotography.cshtml" />
+    <Content Include="Views\ServicesToEvent\deleteop.cshtml" />
+    <Content Include="Views\ServicesToEvent\deleteof.cshtml" />
+    <Content Include="Views\ServicesToEvent\deleteod.cshtml" />
+    <Content Include="Views\ServicesToEvent\deletephoto.cshtml" />
+    <Content Include="Views\Events\Photographies.cshtml" />
+    <Content Include="Views\Foods\Create.cshtml" />
+    <Content Include="Views\Foods\Delete.cshtml" />
+    <Content Include="Views\Foods\Details.cshtml" />
+    <Content Include="Views\Foods\Edit.cshtml" />
+    <Content Include="Views\Foods\Index.cshtml" />
+    <Content Include="Views\Caterings\Create.cshtml" />
+    <Content Include="Views\Caterings\Delete.cshtml" />
+    <Content Include="Views\Caterings\Details.cshtml" />
+    <Content Include="Views\Caterings\Edit.cshtml" />
+    <Content Include="Views\Caterings\Index.cshtml" />
+    <Content Include="Views\Places\Create.cshtml" />
+    <Content Include="Views\Places\Delete.cshtml" />
+    <Content Include="Views\Places\Details.cshtml" />
+    <Content Include="Views\Places\Edit.cshtml" />
+    <Content Include="Views\Places\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -278,6 +300,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Hubs\" />
+    <Folder Include="imgc\" />
+    <Folder Include="imgd\" />
+    <Folder Include="imgpl\" />
+    <Folder Include="imgp\" />
     <Folder Include="img\" />
     <Folder Include="Views\AddService\" />
   </ItemGroup>
